@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>giphy</title>
+
+</head>
+<body>
+	<div id="animalButtons">
+		
+	</div>
+
+	<form id="animal-form">
+		<label for="animal-input">Add animal</label>
+		<input type="text" id="animal-input"><br>
+
+		<input id="addAnimal" type="submit" value="submit">
+	</form>
+
+	<div id="animals">
+
+	</div>
+
+
+	
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 	<script type="text/javascript">
+
+ 		var topics = ["dog", "cat", "cows"];
+
+		
+
+ 		function renderButtons() {
+ 			$("#animals").empty();
+ 			for(var i = 0;i<topics.length; i++){
+ 			$("#animalButtons").append("<button>" + topics[i] + "</button>");	
+ 			}
+ 			
+ 			
+ 		}
+
+
+
+ 				$("#addAnimal").on("click", function(event) {
+ 					event.preventDefault();
+ 					var userInput;
+ 					userInput = $("animal-input").val();
+ 					topics.push(userInput);
+ 					renderButtons();
+ 				});
+ 		
+
+ 						var queryURL = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
+
+ 				$.ajax({
+ 							url: queryURL,
+ 							method: 'GET'
+ 						}).done(function(response) {
+ 							console.log(response);
+
+ 							var results = response.data
+
+ 							for (var i = 0; i<results.length; i++) {
+ 								var animalDiv = $("#animals");
+ 								var animalImage = $("#<img>");
+ 								animalImage.attr("src", results[i].images.fixed_height.url);
+ 								animalDiv.append(animalImage);
+ 								
+ 							}
+
+ 						});	
+
+ 		
+ 	</script>
+</body>
+</html>
