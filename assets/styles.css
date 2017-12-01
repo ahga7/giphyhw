@@ -1,0 +1,17 @@
+
+body {
+	background: #99ffff;
+	text-align: center;
+	margin-right: 20%;
+	margin-left: 20%;
+}
+
+.welcomePanel{
+	background-color:  teal;
+	color:	#2F4F4F;
+	font-family: 'Cabin Sketch', cursive;
+	
+	padding:30px;
+	
+	margin-bottom: 50px
+}

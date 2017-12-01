@@ -1,75 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>giphy</title>
+	<meta charset="UTF-8">
+	<title>GifTastic</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- CSS and JS Sheets -->
+<link rel="stylesheet" href="assets/styles.css">
+<!-- Font	 --> 
+<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700" rel="stylesheet">
 
+
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
+
+
 <body>
-	<div id="animalButtons">
-		
-	</div>
 
-	<form id="animal-form">
-		<label for="animal-input">Add animal</label>
-		<input type="text" id="animal-input"><br>
+  <div class="welcomePanel">
+    <div class="panel-heading">
+      <panel class="panel-title"><h1>GifTastic!</h1></panel>
+    </div>
+    <div class="panel-body">
+      <h4> Welcome! Click on any button to see the Gif Magic. 
+      <br>Feeling fancy? Pick your own topic, create your own button and go wild. 
+      <br>Thanks for visiting!</h4>
+    </div>
+  </div>
 
-		<input id="addAnimal" type="submit" value="submit">
-	</form>
+<!-- Search input part -->
+  <div id="input-group">
+     <label for="input"> Add a Gif</label>
+     <input type="text" id="input"></input>
+     <input id="add-input" type="submit" value="submit"></input>
+  </div>
 
-	<div id="animals">
 
-	</div>
+<!-- existing buttons in the array -->
+    <div id="btnView">
+      <button data-search= "table flip" class="TestBtn">table flip</button>
+    </div>
 
-
-	
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- 	<script type="text/javascript">
-
- 		var topics = ["dog", "cat", "cows"];
-
-		
-
- 		function renderButtons() {
- 			$("#animals").empty();
- 			for(var i = 0;i<topics.length; i++){
- 			$("#animalButtons").append("<button>" + topics[i] + "</button>");	
- 			}
- 			
- 			
- 		}
+    <div class="gifDump" id="gifs-appear-here">Gif Dump</div>
 
 
 
- 				$("#addAnimal").on("click", function(event) {
- 					event.preventDefault();
- 					var userInput;
- 					userInput = $("animal-input").val();
- 					topics.push(userInput);
- 					renderButtons();
- 				});
- 		
 
- 						var queryURL = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
+  	
+  </body>
+ <!-- Ajax and jQuery -->
 
- 				$.ajax({
- 							url: queryURL,
- 							method: 'GET'
- 						}).done(function(response) {
- 							console.log(response);
+  
 
- 							var results = response.data
-
- 							for (var i = 0; i<results.length; i++) {
- 								var animalDiv = $("#animals");
- 								var animalImage = $("#<img>");
- 								animalImage.attr("src", results[i].images.fixed_height.url);
- 								animalDiv.append(animalImage);
- 								
- 							}
-
- 						});	
-
- 		
- 	</script>
-</body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"</script>
+  <script type="text/javascript" src="assets/gif.js"></script>
 </html>
