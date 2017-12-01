@@ -41,7 +41,7 @@ $("button").on("click", function(){
 //render the buttons from the exisitng array
 
   function renderButtons(){
-  	$("#TestBtn").empty();
+  	$(".TestBtn").empty();
 
   	for(var i=0; i< emotions.length; i++){
 
@@ -49,7 +49,7 @@ $("button").on("click", function(){
   		a.addClass("newEmotions");
   		a.attr("data-emotion", emotions[i]);
   		a.text(emotions[i]);
-  		$("#TestBtn").append(a);
+  		$(".TestBtn").append(a);
   	}
 
   } 
